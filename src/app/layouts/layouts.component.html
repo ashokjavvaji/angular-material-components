@@ -1,0 +1,269 @@
+<h4>Material Layouts</h4>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>List Layout</mat-expansion-panel-header>
+    <div>
+      <!-- Basic List -->
+      <mat-card>
+        <p>Simple List</p>
+        <mat-list role="list">
+          <mat-list-item role="listitem">Item#1</mat-list-item>
+          <mat-list-item role="listitem">Item#2</mat-list-item>
+          <mat-list-item role="listitem">Item#3</mat-list-item>
+        </mat-list>
+      </mat-card><br>
+      <mat-card>
+        <p>Navigation Lists</p>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let link of links">
+              <button mat-icon-button>
+                <mat-icon>{{link.icon}}</mat-icon>
+              </button>
+              <a matLine href={{link.url}}>{{link.name}}</a>
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-card><br>
+      <mat-card>
+        <p>Selection List</p>
+        <mat-selection-list #shoes>
+          <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+          </mat-list-option>
+        </mat-selection-list>
+        <p>
+          Options selected: {{shoes.selectedOptions.selected.length}}
+        </p>          
+      </mat-card><br>
+      <mat-card>
+        <p>Dense list</p>
+        <mat-list dense>
+          <mat-list-item> Pepper </mat-list-item>
+          <mat-list-item> Salt </mat-list-item>
+          <mat-list-item> Paprika </mat-list-item>
+        </mat-list>
+      </mat-card><br>
+      <mat-card>
+        <p>List with multiple sections</p>
+        <mat-list>
+          <h3 matSubheader>Folders</h3>
+          <mat-list-item *ngFor="let folder of folders">
+              <mat-icon matListIcon>folder</mat-icon>
+              <h4 matLine>{{folder.name}}</h4>
+              <p matLine class="margin5"> {{folder.updated}} </p>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+          <h3 matSubheader>Notes</h3>
+          <mat-list-item *ngFor="let note of notes">
+              <mat-icon matListIcon>note</mat-icon>
+              <h4 matLine>{{note.name}}</h4>
+              <p matLine class="margin5"> {{note.updated}} </p>
+          </mat-list-item>
+        </mat-list>         
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Grid List Layout</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <p>Basic grid</p>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>1</mat-grid-tile>
+          <mat-grid-tile>2</mat-grid-tile>
+          <mat-grid-tile>3</mat-grid-tile>
+          <mat-grid-tile>4</mat-grid-tile>
+        </mat-grid-list>          
+      </mat-card><br>
+      <mat-card>
+        <p>Dynamic Grid</p>
+        <mat-grid-list cols="4" rowHeight="100px">
+          <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+              [style.background]="tile.color">
+            {{tile.text}}
+          </mat-grid-tile>
+        </mat-grid-list>          
+      </mat-card><br>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Card Layout</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <p>This is a simple card</p>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>This Card has title</mat-card-title>
+          <mat-card-subtitle>This is card Subtitle</mat-card-subtitle>    
+        </mat-card-header>
+        <mat-card-content>This is Card Conent</mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-subtitle>This card has actions and a footer</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button color="primary">Action#1</button>
+          <button mat-button color="primary">Action#2</button>
+        </mat-card-actions>
+        <mat-card-footer>This is card footer</mat-card-footer>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>This is title in title group</mat-card-title>
+            <mat-card-subtitle>This is subtitle in title group</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Stepper Layout</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle>Simple horizontal Stepper</mat-card-subtitle>
+        <mat-card-content>
+          <mat-horizontal-stepper>
+            <mat-step label="Step#1">
+              Content of Step#1
+            </mat-step>
+            <mat-step label="Step#2">
+              Content of Step#2
+            </mat-step>
+          </mat-horizontal-stepper>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Simple vertical Stepper</mat-card-subtitle>
+        <mat-card-content>
+          <mat-vertical-stepper>
+            <mat-step label="Step#1">
+              Content of Step#1
+            </mat-step>
+            <mat-step label="Step#2">
+              Content of Step#2
+            </mat-step>
+          </mat-vertical-stepper>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Stepper with next and prev buttons</mat-card-subtitle>
+        <mat-card-content>
+          <mat-horizontal-stepper>
+            <mat-step label="Step#1">
+              Content of Step#1
+              <div>
+                <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon> Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Step#2">
+              Content of Step#2
+              <div>
+                <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon> Back</button>
+                <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon> Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Step#3">
+              Content of Step#3
+              <div>
+                <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon> Back</button>
+                <button mat-button><mat-icon>save</mat-icon> Submit</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card class="w60percent">
+        <mat-card-subtitle>Stepper with linear mode</mat-card-subtitle>
+        <mat-card-content>
+          <mat-horizontal-stepper [linear]=true>
+            <mat-step [stepControl]="formGroup1">
+              <form [formGroup]="formGroup1">
+                <ng-template matStepLabel>Linear Step#1</ng-template>
+                Content of Step#1
+                <div>
+                  <button mat-button matStepperNext>Next <mat-icon>arrow_forward</mat-icon></button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="formGroup2">
+              <form [formGroup]="formGroup2">
+                <ng-template matStepLabel>Linear Step#2</ng-template>
+                Content of Step#2
+                <div>
+                  <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon> Back</button>
+                  <button mat-button matStepperNext>Next <mat-icon>arrow_forward</mat-icon></button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="formGroup3">
+              <form [formGroup]="formGroup3">
+                <ng-template matStepLabel>Linear Step#3</ng-template>
+                Content of Step#3
+                <div>
+                  <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon> Back</button>
+                  <button mat-button><mat-icon>save</mat-icon> Submit</button>
+                </div>
+              </form>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Tabs Layout</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle>Basic Tabs</mat-card-subtitle>
+        <mat-card-content>
+          <mat-tab-group>
+            <mat-tab label="Tab 1">Content 1</mat-tab>
+            <mat-tab label="Tab 2">Content 2</mat-tab>
+          </mat-tab-group>              
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Tabs with Events</mat-card-subtitle>
+        <mat-card-content>
+          <mat-tab-group (selectedTabChange)="selectedTab()" [(selectedIndex)]="selectedTabIndex">
+            <mat-tab label="Tab 1">Content 1</mat-tab>
+            <mat-tab label="Tab 2">Default Tab selected when open</mat-tab>
+            <mat-tab label="Tab 3">Content 3</mat-tab>
+          </mat-tab-group>              
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Tabs with custom labels</mat-card-subtitle>
+        <mat-card-content>
+          <mat-tab-group>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                This is the <em> best </em> tab
+              </ng-template>
+              Content-1
+            </mat-tab>
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon>thumb_up</mat-icon>Like
+              </ng-template>
+              Contet-2
+            </mat-tab>
+          </mat-tab-group>              
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Expansion Panel Layout</mat-expansion-panel-header>
+    <div>
+      <p>This page is built using expansion panel.</p>
+      <p>For more information vist: <a href="https://material.angular.io/components/expansion/overview">Expansion Panel Layout</a> </p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

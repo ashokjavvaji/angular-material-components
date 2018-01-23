@@ -1,0 +1,141 @@
+<h4>Buttons and Indicators</h4>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Buttons</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle>Simple buttons</mat-card-subtitle>
+        <mat-card-content>
+          <button mat-button>This is simple button</button>
+          <button mat-button>Button with icon <mat-icon>face</mat-icon></button>
+          <button mat-raised-button>This is the raised button</button>
+          <button mat-raised-button color="accent">Raised Button with icon and color <mat-icon>face</mat-icon></button>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Icon buttons</mat-card-subtitle>
+        <mat-card-content>
+          <button mat-icon-button><mat-icon>face</mat-icon></button>
+          <button mat-icon-button color="primary"><mat-icon>face</mat-icon></button>
+          <button mat-icon-button color="accent"><mat-icon>face</mat-icon></button>
+          <button mat-icon-button color="warn"><mat-icon>face</mat-icon></button>
+          <button mat-icon-button disabled><mat-icon>face</mat-icon></button>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Fab and Mini Fab buttons</mat-card-subtitle>
+        <mat-card-content>
+          <button mat-fab>Basic</button>
+          <button mat-fab color="primary">Primary</button>
+          <button mat-fab color="accent">Accent</button>
+          <button mat-fab color="primary"><mat-icon>face</mat-icon></button>
+          <button mat-fab disabled>Disabled</button>
+          <br><br>
+          <button mat-mini-fab>Basic</button>
+          <button mat-mini-fab color="primary">Primary</button>
+          <button mat-mini-fab color="accent">Accent</button>
+          <button mat-mini-fab color="warn">Warn</button>
+          <button mat-mini-fab disabled>Disabled</button>
+          <button mat-mini-fab>
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+          </button>
+          <a mat-mini-fab routerLink=".">Link</a>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Button Toggle</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle>Button has 2 states On/Off</mat-card-subtitle>
+        <mat-card-content>
+          <mat-button-toggle>This is a toggle button</mat-button-toggle>
+          <mat-button-toggle color="primary">This is a toggle button</mat-button-toggle>
+          <mat-button-toggle color="warn">This is a toggle button</mat-button-toggle>
+          <mat-button-toggle color="accent">This is a toggle button</mat-button-toggle>
+          <mat-button-toggle disabled>Disabled toggle button</mat-button-toggle>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Toggle Button group</mat-card-subtitle>
+        <mat-card-content>
+          <mat-button-toggle-group #group="matButtonToggleGroup" color="primary">
+            <mat-button-toggle value="Yes" color="primary"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+            <mat-button-toggle value="No" color="warn"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+          </mat-button-toggle-group>
+          <div>Selected value: {{group.value}}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Chips</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle>Basic chips</mat-card-subtitle>
+        <mat-card-content>
+          <mat-chip-list>
+            <mat-chip>Basic</mat-chip>
+            <mat-chip color="primary">With Primary Color</mat-chip>
+            <mat-chip color="primary" selected="true">With Primary Color and Selected</mat-chip>
+            <mat-chip color="accent" selected="true">With Accent Color and Selected</mat-chip>
+            <mat-chip color="warn" selected="true">With Warn Color and Selected</mat-chip>
+            <mat-chip color="warn" selected="true" disabled>With Warn Color and Selected and disabled</mat-chip>
+          </mat-chip-list>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-subtitle>Chip Input</mat-card-subtitle>
+        <mat-card-content>
+          <mat-form-field class="w100percent">
+            <mat-chip-list #chipInputList> &nbsp;
+              <mat-chip color="warn" *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (remove)="removeFruit(fruit)">
+                <mat-icon>local_restaurant</mat-icon>
+                {{fruit}} &nbsp;
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Add new Fruit" [matChipInputFor]="chipInputList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addFruit($event)" >
+            </mat-chip-list>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Icon</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-content>
+          You know this. No need to check this out.
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Progress Spinner</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle></mat-card-subtitle>
+        <mat-card-content>
+          in progress
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Progress Bar</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-subtitle></mat-card-subtitle>
+        <mat-card-content>
+          in progress
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

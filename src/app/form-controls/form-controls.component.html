@@ -1,0 +1,162 @@
+<h4>Material Form Components</h4>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Checkbox</mat-expansion-panel-header>
+    <div>
+      <mat-checkbox color="primary">Simple Checkbox</mat-checkbox><br>
+      <mat-checkbox color="accent" [align]='end'>Label is before Checkbox</mat-checkbox><br>
+      <mat-checkbox color="warn" [indeterminate]=true>Indeterminate state of the checkbox</mat-checkbox><br>
+      <mat-checkbox color="primary" [disabled]=true>This checkbox is disabled</mat-checkbox><br>
+      <mat-checkbox color="primary" [ngModel]="oneChecked">This has model attached. one-way binding.</mat-checkbox> :: <label>One Way Binded value: {{oneChecked}}</label><br>
+      <mat-checkbox color="primary" [(ngModel)]="twoChecked">This has two way binding</mat-checkbox> :: <label>Two way binded value: {{twoChecked}}</label><br>
+      <mat-checkbox color="primary" (change)="checkboxChangeEvent()" [(ngModel)]="threeChecked">A message box when checked</mat-checkbox>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Date Picker</mat-expansion-panel-header>
+    <div>
+      <mat-form-field>
+        <input matInput [matDatepicker]="datePicker1" placeholder="Simple Datepicker">
+        <mat-datepicker #datePicker1></mat-datepicker>    
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="datePicker2" placeholder="Datepicker with button">
+        <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker2></mat-datepicker>    
+      </mat-form-field>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Form Fields</mat-expansion-panel-header>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Simple Input field">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="This is a Textarea for multiline text"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Select Box with input from Controller">
+          <mat-option *ngFor="let val of selectValues" [value]="val">
+            {{ val }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field hintLabel="Max 10 characters">
+        <input matInput #input maxlength="10" placeholder="Input with hint labels">
+        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Enter your email. Will show error when email is invalid" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Input</mat-expansion-panel-header>
+    <div>
+      <form class="example-form">
+        <mat-form-field>
+          <input matInput placeholder="Favorite food" value="Sushi">
+        </mat-form-field>
+      
+        <mat-form-field>
+          <textarea matInput placeholder="Leave a comment"></textarea>
+        </mat-form-field>
+      </form>          
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Radio Buttons</mat-expansion-panel-header>
+    <div>
+      <mat-radio-group>
+        <mat-radio-button value="1" class="margin5">Option1</mat-radio-button><br>
+        <mat-radio-button value="2" class="margin5">Option2</mat-radio-button><br>
+        <mat-radio-button value="3" class="margin5">Option3</mat-radio-button><br>
+      </mat-radio-group>
+      <p>Two-way binding example</p>
+      <mat-radio-group class="inlineFlexColumn" [(ngModel)]="favoriteSeason">
+        <mat-radio-button class="margin5" *ngFor="let season of seasons" [value]="season">
+          {{season}}
+        </mat-radio-button><br>
+      </mat-radio-group>
+      <div class="margin15">Your favorite season is: {{favoriteSeason}}</div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Select or Dropdown</mat-expansion-panel-header>
+    <div>
+      <form>
+        <mat-form-field>
+          <mat-select placeholder="Select a value" [(ngModel)]="selectedValue" name="random">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> Selected value: {{selectedValue}} </p>
+      </form>
+      <mat-form-field>
+        <mat-select placeholder="Favorite animal" [formControl]="animalControl" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+        <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+      </mat-form-field>
+      <p>For more information visit: <a href="https://material.angular.io/components/select/overview">Select Form Control</a> </p>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Slider control</mat-expansion-panel-header>
+    <div>
+      <mat-slider
+        class="inlineFlexColumn width300"
+        color="primary"
+        [disabled]=false
+        [invert]=false
+        [max]=100
+        [min]=0
+        [step]=1
+        [thumb-label]=true
+        [tick-interval]="auto"
+        [(ngModel)]="sliderValue"
+        [vertical]=false>
+      </mat-slider>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Slide Toggle or Switcher</mat-expansion-panel-header>
+    <div>
+      <mat-slide-toggle class="margin5" color="primary" [checked]=false [disabled]=false>
+        Slide me!
+      </mat-slide-toggle>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Auto Complete</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-content>
+            <form class="container100NoBorder">
+              <mat-form-field class="w20percent">
+                <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="autoCompleteControl" [matAutocomplete]="auto" [(ngModel)]="enteredAutoComplete" >
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of selectValues" [value]="option">
+                    {{ option }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+            <div>Entered Value: {{enteredAutoComplete}} </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+

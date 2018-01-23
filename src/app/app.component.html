@@ -1,0 +1,69 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Explore Material Design Components</span>
+    <span class="fillspace"></span>
+    <button mat-button routerLink="forms">Form Controls</button>
+    <button mat-button routerLink="navs">Navigation</button>
+    <button mat-button routerLink="layouts">Layouts</button>
+    <button mat-button routerLink="buttons">Buttons & Indicators</button>
+    <button mat-button routerLink="modals">Modals & Popups</button>
+    <button mat-button routerLink="tables">Tables</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<!--
+<div>
+  <h4>Using material componets. Ex: Button</h4>
+  <button mat-button>Sample Material Button</button>
+</div>
+<div>
+  <h4>Using material Icons</h4>
+  <mat-icon>home</mat-icon>
+</div>
+<div>
+  <h4>Using Material menu: Toolbar type</h4>
+  <mat-toolbar color="warn">
+    <mat-toolbar-row>
+      <span>Toolbar Menu - Org name goes here</span>
+      <span class="fillspace"></span>
+      <button mat-button>About</button>
+      <button mat-button>Services</button>
+      <button mat-button>Contact</button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div>
+  <h4>Using card layout and material form fields</h4>
+  <mat-card>
+    <mat-form-field>
+      <input matInput [(ngModel)]="answer" placeholder="Who has the best dev tutorials?">
+    </mat-form-field>
+  
+    <br>
+  
+    <button mat-raised-button (click)="showAnswer()">Answer me</button>
+    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  </mat-card>
+
+  <mat-card *ngIf="answerDisplay">
+    <h1>{{ answerDisplay }}, you're damn right.</h1>
+  </mat-card> 
+</div>
+
+<div>
+  <h4>Using form controls of Angular Material</h4>
+  <mat-card>
+
+  </mat-card>
+</div>
+
+-->

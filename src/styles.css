@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*@import 'matt-app-theme.scss';*/
+
+.fillspace {
+    flex: 1 1 auto;
+}
+.inlineFlexColumn {
+    display: inline-flex;
+    flex-direction: column;
+}
+.margin5 {
+    margin: 5px;
+}
+.margin15 {
+    margin: 15px, 0;
+}
+.width300 {
+    width: 300px;
+}
+
+.w20percent {
+    width: 20%;
+}
+
+.w60percent {
+    width: 60%;
+}
+
+.w100percent {
+    width: 100%;
+}
+
+.fullContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.border {
+    border: 1px solid;
+}
+
+.container100 {
+    width: 100%;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    margin: 5px;
+}
+
+.container100NoBorder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+    margin: 5px;
+}

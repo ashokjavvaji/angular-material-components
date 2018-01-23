@@ -1,0 +1,110 @@
+<h4>Navigation Components</h4>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Menu</mat-expansion-panel-header>
+    <div>
+      <!-- button and mat-menu are lined via the value specified in [matMenuTriggerFor] -->
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <!-- Menu with icon -->
+      <button mat-icon-button [matMenuTriggerFor]="myMenu1">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #myMenu1="matMenu">
+        <button mat-menu-item>Menu 1</button>
+        <button mat-menu-item>Menu 2</button>
+      </mat-menu>
+      <!-- Nested menu -->
+      <button mat-icon-button [matMenuTriggerFor]="animalMenu">
+        <mat-icon>pets</mat-icon>
+      </button>
+      <mat-menu #animalMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="milkSubMenu">Milk</button>
+        <button mat-menu-item [matMenuTriggerFor]="meatSubMenu">Meat</button>
+      </mat-menu>
+      <mat-menu #milkSubMenu="matMenu">
+        <button mat-menu-item>Cow</button>
+        <button mat-menu-item>Buffalow</button>
+      </mat-menu>
+      <mat-menu #meatSubMenu="matMenu">
+          <button mat-menu-item>Chicken</button>
+          <button mat-menu-item>Goat</button>
+          <button mat-menu-item>Fish</button>
+        </mat-menu>
+      </div>
+  </mat-expansion-panel>      
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Sidenav</mat-expansion-panel-header>
+    <div>
+      <mat-card>
+        <mat-card-content>
+          <!-- Basic -->
+          <mat-sidenav-container class="container100">
+            <mat-sidenav #sidenav mode="push" position="start">
+              Side Nav Buttons:<br>
+              <button mat-button>Menu#1</button><br>
+              <button mat-button>Menu#2</button><br>
+              <button mat-button>Menu#3</button><br>
+            </mat-sidenav>
+            <mat-sidenav-content>
+              <button mat-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+              </button>        
+            </mat-sidenav-content>
+          </mat-sidenav-container>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-content>
+            <mat-sidenav-container class="margin5 border">
+              <mat-sidenav mode="side" opened>This is in side mode.</mat-sidenav>
+              <mat-sidenav position="end">End</mat-sidenav>
+              <section>Main</section>
+            </mat-sidenav-container>
+        </mat-card-content>
+      </mat-card><br>
+      <mat-card>
+        <mat-card-content>
+            <mat-sidenav-container class="margin5 border">
+              <mat-sidenav mode="over" opened>This is over the main content</mat-sidenav>
+              <section>This is a long main content that does not make any scense.</section>
+            </mat-sidenav-container>
+        </mat-card-content>
+      </mat-card>
+      <p>For more information vist: <a href="https://material.angular.io/components/sidenav/overview">Sidenav Navigation</a> </p>
+    </div>
+  </mat-expansion-panel>      
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>Toolbar</mat-expansion-panel-header>
+      <div>
+        <p>Single row</p>
+        <mat-toolbar color="primary">
+          <span>App Name</span>
+          <span class="fillspace"></span>
+          <button mat-button>Option-1</button>
+          <button mat-button>Option-2</button>
+        </mat-toolbar>
+        <p>Multi row</p>
+        <mat-toolbar color="warn">
+          <mat-toolbar-row>
+            <span>First row</span>
+            <span class="fillspace"></span>
+            <button mat-button>Row-1 Button-1</button>
+            <mat-icon>favorite</mat-icon>
+          </mat-toolbar-row>
+          <mat-toolbar-row>
+            <span>Second row</span>
+            <span class="fillspace"></span>
+            <button mat-button>Row-2 Button-1</button>
+            <button mat-button>Row-2 Button-2</button>
+            <mat-icon>verified_user</mat-icon>
+            <mat-icon>delete</mat-icon>
+          </mat-toolbar-row>
+        </mat-toolbar>
+      </div>
+    </mat-expansion-panel>      
+</mat-accordion>

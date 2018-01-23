@@ -1,0 +1,27 @@
+<h4>Modal Dialogs and popups</h4>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Dialog</mat-expansion-panel-header>
+    <div>
+      <mat-card class="width300">
+        <mat-card-subtitle>Dialog box</mat-card-subtitle>
+        <mat-card-content>
+          <button mat-button (click)="openDialog()">Click Me!</button>
+        </mat-card-content>
+      </mat-card><br>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Tooltip</mat-expansion-panel-header>
+    <div>
+      <span matTooltip="This is the tooltip text for the element">Hover over me for a tip!</span>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Snackbar</mat-expansion-panel-header>
+    <div>
+      Reffer <a href="https://material.angular.io/components/snack-bar/overview">Snackbar Docs</a> for more information.
+    </div>
+  </mat-expansion-panel>    
+</mat-accordion>
