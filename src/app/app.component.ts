@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Material App Trials';
+  title = 'Exploring Material Components in Angular';
 
   answer: string = '';
   answerDisplay: string = '';
